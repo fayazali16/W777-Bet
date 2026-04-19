@@ -1,0 +1,29 @@
+{
+  "name": "w777bet-info-hub",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "clean": "rm -rf .next .next-dev node_modules/.cache .turbo",
+    "clean:dev": "rm -rf .next-dev node_modules/.cache .turbo",
+    "dev": "npm run clean:dev && NEXT_DIST_DIR=.next-dev next dev",
+    "dev:clean": "npm run dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "optimize:images": "node scripts/generate-webp.mjs"
+  },
+  "dependencies": {
+    "next": "15.5.15",
+    "react": "19.2.5",
+    "react-dom": "19.2.5"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "eslint": "^9.16.0",
+    "eslint-config-next": "15.5.15",
+    "sharp": "^0.34.5",
+    "typescript": "^5.7.0"
+  }
+}
