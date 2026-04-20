@@ -1,5 +1,10 @@
 import type { MetadataRoute } from "next";
-import { getAllPostSlugs, getPostBySlug } from "@/lib/blog/queries";
+import {
+  getAllCategories,
+  getAllPostSlugs,
+  getPostBySlug,
+  getPostsByCategorySlug,
+} from "@/lib/blog/queries";
 import { ABOUT_US_FEATURE_PATH, HOME_HERO_BRAND_SRC, OG_DEFAULT_PATH } from "@/lib/seo-media";
 import { getSiteUrl, LAST_MODIFIED } from "@/lib/site";
 
@@ -69,5 +74,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     };
   });
 
-  return [...staticRoutes, ...postUrls];
+  const categoryUrls: MetadataRoute.Sitemap = getAllCategories().map((category) => {
+    const featuredPath =
+      getPostsByCategorySlug(category.slug).find((post) => post.featuredImage)?.featuredImage?.src ??
+      OG_DEFAULT_PATH;
+    return {
+      url: `${base}/blog/category/${category.slug}/`,
+      lastModified: lastMod,
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+      images: absImage(base, featuredPath),
+    };
+  });
+
+  return [...staticRoutes, ...categoryUrls, ...postUrls];
 }
