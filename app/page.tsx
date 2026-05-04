@@ -4,7 +4,8 @@ import { JsonLd } from "@/components/JsonLd";
 import { homePageJsonLd } from "@/lib/jsonld";
 import { getSiteUrl } from "@/lib/site";
 
-const META_TITLE = "W777 Bet Download – Play W777Bet Game on Android";
+/** Document & sharing title only (on-page H1 stays in `HomeLongform`). */
+const META_TITLE = "W777 Bet Game | Download Latest Earning App of Pakistan";
 const META_DESCRIPTION =
   "Download the latest W777 Bet for Android and play classic W777Bet Game card games online. Free download, real rewards, and daily bonuses.";
 
@@ -23,7 +24,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: `${getSiteUrl()}/`,
   },
-  title: META_TITLE,
+  title: { absolute: META_TITLE },
   description: META_DESCRIPTION,
   keywords: KEYWORDS,
   openGraph: {

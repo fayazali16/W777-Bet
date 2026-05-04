@@ -78,7 +78,7 @@ export function homePageJsonLd(base: string) {
         "@type": "WebPage",
         "@id": `${base}/#webpage`,
         url: `${base}/`,
-        name: "W777 Bet Download – Play W777Bet Game on Android",
+        name: "W777 Bet Game | Download Latest Earning App of Pakistan",
         isPartOf: { "@id": `${base}/#website` },
         about: {
           "@type": "Thing",
